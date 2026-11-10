@@ -11,7 +11,7 @@ export default function FormularioReceta() {
     const [ingrediente3, setIngrediente3] = useState('');
     const [ingrediente4, setIngrediente4] = useState('');
     const [ingrediente5, setIngrediente5] = useState('');
-    const [fechaCreacion, setFechaCreacion] = useState('');
+    const [fechaCreacion, setFechaCreacion] = useState(new Date().toLocaleDateString());
 
     const registrarReceta = () => {
         if (!nombreReceta.trim()) {
@@ -27,11 +27,18 @@ export default function FormularioReceta() {
             ingrediente5
         ].filter(item => item.trim() !== '');
 
+        if (listadoIngredientes.length === 0) {
+            Alert.alert('Atención', 'Por favor ingresa al menos un ingrediente.');
+            return;
+        }
+
+        const fechaFinal = fechaCreacion.trim() !== '' ? fechaCreacion : new Date().toLocaleDateString();
+
         const nuevaRecetaObj = {
             id: Date.now().toString(),
             nombre: nombreReceta,
             ingredientes: listadoIngredientes,
-            fecha: fechaCreacion || 'Hoy',
+            fecha: fechaFinal,
         };
 
         agregarReceta(nuevaRecetaObj);
@@ -42,7 +49,7 @@ export default function FormularioReceta() {
         setIngrediente3('');
         setIngrediente4('');
         setIngrediente5('');
-        setFechaCreacion('');
+        setFechaCreacion(new Date().toLocaleDateString());
 
         Alert.alert('Éxito', 'La receta se ha registrado correctamente.');
     };
