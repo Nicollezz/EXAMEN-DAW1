@@ -18,3 +18,8 @@ Lista de recetas
 Detalle receta
 
 <img width="1001" height="752" alt="image" src="https://github.com/user-attachments/assets/0bc9142b-07a0-403d-997f-7f4755e9f0c4" />
+
+
+EN MOVIL
+
+<img width="718" height="1599" alt="MOVIL APP" src="https://github.com/user-attachments/assets/3b74d770-17b8-4a83-b6d6-3532e8d957dc" />
